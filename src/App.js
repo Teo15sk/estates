@@ -53,6 +53,14 @@ function App() {
                     />
                 ))}
             </nav>
+            {/* <button
+                onClick={() => {
+                    setEstateCompare(null);
+                    setOneEstate(null);
+                }}
+            >
+                Reset comparison
+            </button> */}
             <div className="estate-compare">
                 {estateCompare && oneEstate && (
                     <>

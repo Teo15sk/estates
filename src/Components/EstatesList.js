@@ -1,23 +1,26 @@
 import { useState } from "react";
 
 function EstatesList(props) {
+    const [selected, setSelected] = useState("");
+
     function handleClick(e) {
-        // let target = e.currentTarget;
         let value = e;
         if (props.oneEstate && props.estateCompare) {
             return;
         }
         props.fetchEstate(value);
     }
-    const [selected, setSelected] = useState("");
 
     return (
         <div
             className={`list-estate ${selected && selected}`}
             onClick={() => {
-                // estate.currentTarget.classList.toggle("selected");
-                selected === "" ? setSelected("selected") : setSelected("");
                 handleClick(props.estate.id);
+
+                if (props.oneEstate && props.estateCompare) {
+                    return;
+                }
+                selected === "" ? setSelected("selected") : setSelected("");
             }}
         >
             <img

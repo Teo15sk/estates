@@ -14,8 +14,6 @@ function EstateComparison(props) {
             ? "better"
             : "worse";
 
-    // console.log(props.thisEstate);
-    // console.log(props.otherEstate);
     return (
         <div className="estate">
             <img
