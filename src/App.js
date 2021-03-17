@@ -8,7 +8,7 @@ function App() {
     const [estatesList, setEstatesList] = useState([]);
     const [oneEstate, setOneEstate] = useState(null);
     const [estateCompare, setEstateCompare] = useState(null);
-
+    const [offset, setOffset] = useState(0);
     //console.log(oneEstate);
 
     async function fetchEstatesList() {
@@ -41,7 +41,7 @@ function App() {
                 <h1 className="header__heading">Estate Comparison</h1>
             </header>
             <nav className="estates-list">
-                {estatesList.slice(0, 10).map((estate, index) => (
+                {estatesList.slice(offset, offset + 10).map((estate, index) => (
                     <EstatesList
                         key={index}
                         estate={estate}
@@ -53,6 +53,24 @@ function App() {
                     />
                 ))}
             </nav>
+            <br />
+            <button
+                onClick={() => {
+                    if (offset >= 10) {
+                        setOffset(offset - 10);
+                    }
+                }}
+            >
+                Previous
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button
+                onClick={() => {
+                    setOffset(offset + 10);
+                }}
+            >
+                Next
+            </button>
             {/* <button
                 onClick={() => {
                     setEstateCompare(null);
